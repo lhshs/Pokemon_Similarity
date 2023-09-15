@@ -9,7 +9,7 @@
 
 <br>
 최종 실행 후 FIGURE를 끄면 다음 실행이 가능합니다.
-<br>최초 실행시 feature_extract에 약 2분정도 소요됩니다.
+<br>최초 실행시 Feature Extracting 과정에 약 2분정도 소요됩니다.
 <br>최초 실행시 생성된 <strong>feature_extraction.pickle</strong> 파일이 root 폴더에 존재한다면, 다음 실행부터 feature extraction 과정 없이 유사도를 볼 수 있습니다.
 
 ### Model
