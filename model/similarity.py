@@ -32,7 +32,7 @@ def similar_output(first_name, second_name):
         plt.imshow(image.load_img(load._data()[b_index])) 
         plt.yticks([])
         plt.xticks([])
-        plt.title(f"Similarity Between {first_name} & {second_name} : {similarity}")
+        plt.suptitle(f"Similarity Between {first_name} & {second_name} : {similarity}", fontsize=20)
         plt.show()
 
     else:
@@ -57,6 +57,6 @@ def similar_output(first_name, second_name):
         plt.imshow(image.load_img(load._data()[b_index])) 
         plt.yticks([])
         plt.xticks([])
-        plt.title(f"Similarity Between {first_name} & {second_name} : {similarity}")
+        plt.suptitle(f"Similarity Between {first_name} & {second_name} : {similarity}", fontsize=20)
         plt.show()
         
