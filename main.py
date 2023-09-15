@@ -25,16 +25,16 @@ from model import similarity
 def start(first_name, second_name):
     if (first_name not in load.confirm()) or (second_name not in load.confirm()):
         print()
-        print('  ❗ 포켓몬이 목록에 없습니다❗')
-        print('    🎈 이름만 입력해주세요🎈')
+        print(' !!!- 포켓몬이 목록에 없습니다 -!!! ')
+        print('      - 이름만 입력해주세요 -       ')
         print()
         sys.exit(1)      # 포켓몬 이름이 없다면 종료 
     else:
-        print('✨ START✨')
-        print(f"  Get Similar Between \33[91m{first_name}\033[0m &\33[94m {second_name} \033[0m")
+        print('<<<<< START >>>>>')
+        print(f"  << Get Similar Between {first_name} & {second_name} >>  ")
         return similarity.similar_output(first_name, second_name)
 
-    
+
 if __name__ == '__main__':
     start()
 

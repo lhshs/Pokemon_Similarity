@@ -1,10 +1,11 @@
 import pickle
 import os
+import matplotlib.pyplot as plt
 from sklearn.metrics.pairwise import cosine_similarity
 
 from data import load
 from model import embedding, model
-
+from tensorflow.keras.preprocessing import image
 
 
 def similar_output(first_name, second_name):
@@ -16,12 +17,24 @@ def similar_output(first_name, second_name):
         image2_features = list(image_features.values())[b_index]
         similarity = cosine_similarity(image1_features, image2_features)[0][0]
         similarity = str(round((similarity * 100), 2)) + '%'
-        print('✨ RESULT✨')
-        print(f"Similarity between\33[91m {first_name} \033[0mand\33[94m {second_name} \033[0m: {similarity}")
+        print('<<<<< RESULT ON FIGURE >>>>>')
     
         # save feature extract dict
         with open('feature_extraction.pickle','wb') as fs:
             pickle.dump(image_features, fs)
+
+        plt.figure(figsize=(10, 5))
+        plt.subplot(121)
+        plt.imshow(image.load_img(load._data()[a_index]))
+        plt.yticks([])
+        plt.xticks([])
+        plt.subplot(122)
+        plt.imshow(image.load_img(load._data()[b_index])) 
+        plt.yticks([])
+        plt.xticks([])
+        plt.title(f"Similarity Between {first_name} & {second_name} : {similarity}")
+        plt.show()
+
     else:
         # load feature extract dict
         with open('feature_extraction.pickle', 'rb') as fl:
@@ -33,8 +46,17 @@ def similar_output(first_name, second_name):
         image2_features = list(image_features.values())[b_index]
         similarity = cosine_similarity(image1_features, image2_features)[0][0]
         similarity = str(round((similarity * 100), 2)) + '%'
-        print('🔻 RESULT🔻')
-        print(f"Similarity between\33[91m {first_name} \033[0mand\33[94m {second_name} \033[0m: {similarity}")
+        print('<<<<< RESULT ON FIGURE >>>>>')
         
-    return load.show_image(a_index, b_index)
-
+        plt.figure(figsize=(10, 5))
+        plt.subplot(121)
+        plt.imshow(image.load_img(load._data()[a_index]))
+        plt.yticks([])
+        plt.xticks([])
+        plt.subplot(122)
+        plt.imshow(image.load_img(load._data()[b_index])) 
+        plt.yticks([])
+        plt.xticks([])
+        plt.title(f"Similarity Between {first_name} & {second_name} : {similarity}")
+        plt.show()
+        
